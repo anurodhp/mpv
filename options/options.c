@@ -65,6 +65,7 @@ extern const struct m_sub_options stream_lavf_conf;
 extern const struct m_sub_options sws_conf;
 extern const struct m_sub_options zimg_conf;
 extern const struct m_sub_options drm_conf;
+extern const struct m_sub_options rpi_overlay_conf;
 extern const struct m_sub_options demux_rawaudio_conf;
 extern const struct m_sub_options demux_rawvideo_conf;
 extern const struct m_sub_options demux_playlist_conf;
@@ -937,6 +938,10 @@ static const m_option_t mp_opts[] = {
 
 #if HAVE_DRM
     {"", OPT_SUBSTRUCT(drm_opts, drm_conf)},
+#endif
+
+#if HAVE_RPI_MMAL
+    {"", OPT_SUBSTRUCT(rpi_overlay_opts, rpi_overlay_conf)},
 #endif
 
 #if HAVE_GL_WIN32

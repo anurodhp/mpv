@@ -945,6 +945,16 @@ if features['drm']
                      'video/out/vo_drm.c')
 endif
 
+# Raspberry Pi: --hwdec=mmal frames shown as a VideoCore display layer
+# (video/out/hwdec/hwdec_rpi_overlay.c). Needs the Raspberry Pi userland's
+# mmal/bcm_host libraries, found through mmal.pc.
+rpi_mmal = dependency('mmal', required: get_option('rpi-mmal'))
+features += {'rpi-mmal': rpi_mmal.found()}
+if features['rpi-mmal']
+    dependencies += rpi_mmal
+    sources += files('video/out/hwdec/hwdec_rpi_overlay.c')
+endif
+
 gbm_opt = get_option('gbm').require(
     features['drm'],
     error_message: 'drm was not found!'

@@ -391,6 +391,7 @@ typedef struct MPOpts {
     struct d3d11va_opts *d3d11va_opts;
     struct macos_opts *macos_opts;
     struct drm_opts *drm_opts;
+    struct rpi_overlay_opts *rpi_overlay_opts;
     struct wingl_opts *wingl_opts;
     struct cuda_opts *cuda_opts;
     struct dvd_opts *dvd_opts;
